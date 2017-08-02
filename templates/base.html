@@ -1,0 +1,63 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}HappinessPredictor{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="styles/index.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" data-spy="affix" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">HappinessPredictor</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/about">About</a></li>
+                <li><a href="/survey">Survey</a></li>
+                <li><a href="/results">Results</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<header class="main-header" role="banner">
+  <img class="img-responsive" src="static/happiness.jpg" alt="Banner Image"/>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% block page_content %}{% endblock %}
+</div>
+
+<div>
+    <h6 class = "text-center">
+     | hjd | 2017 |
+   </h6>
+</div>
+{% endblock %}
+
+
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock %}

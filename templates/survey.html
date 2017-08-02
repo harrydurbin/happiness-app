@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}HappinessPredictor{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+
+</div>
+
+<h3> Try to think about how happy you feel on a scale of 1-4.</br>
+    1 : VERY HAPPY </br>
+    2 : RATHER HAPPY </br>
+    3 : NOT VERY HAPPY </br>
+    4 : NOT AT ALL HAPPY </br></h3>
+</br>
+
+{{ wtf.quick_form(form) }}
+
+</br>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}HappinessPredictor{% endblock %}
+
+
+{% block page_content %}
+
+<div class="page-header">
+    </br>
+{% if prediction %}
+    <h2 class='text-center'>Based on similar survey responses, I predict you are:</br>{{ prediction }}</h2>
+    <hr class="style17">
+    <h4 class='text-center'>{{ quote }}</h4>
+    <img class="img-responsive center-block" src= 'static/happykid.jpg'/>
+    </br>
+{% else %}
+  <h2 class='text-center'>Oops, there is an error. Have you taken the survey yet?</h2>
+{% endif %}
+
+</div>
+{% endblock %}
+
+<!-- #style="width:150%"/> -->
